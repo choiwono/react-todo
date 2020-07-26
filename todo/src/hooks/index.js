@@ -13,8 +13,8 @@ export const useTasks = selectedProject => {
         .collection('tasks')
         .where('userId', '==', 'user');
 
-        unsubsribe = selectedProject && !collatedTasksExist(selectedProject) ?
-        (unsubsrcibe = unsubscribe.where('projectId', '==', selectedProject))
+        unsubscribe = selectedProject && !collatedTasksExist(selectedProject) ?
+        (unsubscribe = unsubscribe.where('projectId', '==', selectedProject))
         : selectedProject === 'TODAY'
         ? (unsubscribe = unsubscribe.where(
             'data', 
@@ -22,7 +22,7 @@ export const useTasks = selectedProject => {
             moment().format('DD/MM/YYYY')
             ))
         : selectedProject === 'INBOX' || selectedProject === 0
-        ? (unbsribe = unsubscribe.where('date', '==', ''))
+        ? (unsubscribe = unsubscribe.where('date', '==', ''))
         : unsubscribe;
             
         unsubscribe = unsubscribe.onSnapshot(snapshot => {
